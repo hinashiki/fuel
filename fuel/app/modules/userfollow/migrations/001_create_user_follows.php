@@ -1,6 +1,6 @@
 <?php
 /**
- * create all table for Oisyna
+ * create all table for userfollow
  *
  *
  */
