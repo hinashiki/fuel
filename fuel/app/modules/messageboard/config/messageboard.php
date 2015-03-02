@@ -8,7 +8,7 @@ return array(
 	'limit' => 20,
 	// select add conditions
 	'add_where' => array(
-		array('users.deleted' => \Schema::DELETED_NO),
+		array('users.deleted' => 0),
 	),
 	// default valid rule for insert | update
 	'valid_rule' => array(
