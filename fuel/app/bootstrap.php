@@ -5,7 +5,14 @@ require COREPATH.'bootstrap.php';
 
 Autoloader::add_classes(array(
 	// Add classes you want to override here
-	// Example: 'View' => APPPATH.'classes/view.php',
+	'Agent'    => APPPATH.'classes/agent.php',
+	'Error'    => APPPATH.'classes/error.php',
+	'Input'    => APPPATH.'classes/input.php',
+	'Log'      => APPPATH.'classes/log.php',
+	'Response' => APPPATH.'classes/response.php',
+	'TestCase' => APPPATH.'classes/testcase.php',
+	// Add exception what you want
+	'RedirectTestException' => APPPATH.'classes/error.php',
 ));
 
 // Register the autoloader
