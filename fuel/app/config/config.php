@@ -44,17 +44,17 @@ return array(
 	 */
 	// 'index_file' => false,
 
-	// 'profiling'  => false,
+	'profiling'  => false,
 
 	/**
 	 * Default location for the file cache
 	 */
-	// 'cache_dir'       => APPPATH.'cache/',
+	'cache_dir'       => APPPATH.'cache/',
 
 	/**
 	 * Settings for the file finder cache (the Cache class has it's own config!)
 	 */
-	// 'caching'         => false,
+	'caching'         => false,
 	// 'cache_lifetime'  => 3600, // In Seconds
 
 	/**
@@ -78,14 +78,14 @@ return array(
 	/**
 	 * Localization & internationalization settings
 	 */
-	// 'language'           => 'en', // Default language
-	// 'language_fallback'  => 'en', // Fallback language when file isn't available for default language
-	// 'locale'             => 'en_US', // PHP set_locale() setting, null to not set
+	'language'           => 'ja', // Default language
+	'language_fallback'  => 'ja', // Fallback language when file isn't available for default language
+	'locale'             => 'ja_JP', // PHP set_locale() setting, null to not set
 
 	/**
 	 * Internal string encoding charset
 	 */
-	// 'encoding'  => 'UTF-8',
+	'encoding'  => 'UTF-8',
 
 	/**
 	 * DateTime settings
@@ -94,7 +94,7 @@ return array(
 	 * default_timezone		optional, if you want to change the server's default timezone
 	 */
 	// 'server_gmt_offset'  => 0,
-	// 'default_timezone'   => null,
+	'default_timezone'   => 'Asia/Tokyo',
 
 	/**
 	 * Logging Threshold.  Can be set to any of the following:
@@ -106,9 +106,9 @@ return array(
 	 * Fuel::L_INFO
 	 * Fuel::L_ALL
 	 */
-	// 'log_threshold'    => Fuel::L_WARNING,
-	// 'log_path'         => APPPATH.'logs/',
-	// 'log_date_format'  => 'Y-m-d H:i:s',
+	'log_threshold'    => Fuel::L_DEBUG,
+	'log_path'         => APPPATH.'logs/',
+	'log_date_format'  => 'Y-m-d H:i:s',
 
 	/**
 	 * Security settings
@@ -129,7 +129,7 @@ return array(
 		 * Examples of these are HTTP_X_FORWARDED_FOR and HTTP_X_FORWARDED_PROTO, which
 		 * can be faked which could have security implications
 		 */
-		// 'allow_x_headers'       => false,
+		'allow_x_headers'       => true,
 
 		/**
 		 * This input filter can be any normal PHP function as well as 'xss_clean'
@@ -168,7 +168,7 @@ return array(
 		/**
 		 * Whether to automatically filter view data
 		 */
-		// 'auto_filter_output'  => true,
+		'auto_filter_output'  => false,
 
 		/**
 		 * With output encoding switched on all objects passed will be converted to strings or
@@ -238,9 +238,9 @@ return array(
 	 *
 	 * Paths MUST end with a directory separator (the DS constant)!
 	 */
-	// 'module_paths' => array(
-	// 	//APPPATH.'modules'.DS
-	// ),
+	'module_paths' => array(
+		APPPATH.'modules'.DS
+	),
 
 	/**
 	 * To enable you to split up your additions to the framework, packages are
