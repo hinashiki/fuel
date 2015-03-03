@@ -1,16 +1,5 @@
 <?php
 /**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
- *
- * @package    Fuel
- * @version    1.7
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2014 Fuel Development Team
- * @link       http://fuelphp.com
- */
-
-/**
  * The Welcome Controller.
  *
  * A basic controller example.  Has examples of how to set the
@@ -19,8 +8,22 @@
  * @package  app
  * @extends  Controller
  */
-class Controller_Welcome extends Controller
+class Controller_Welcome extends \Controller_Template
 {
+
+	private $__404 = false;
+
+	/**
+	 * @overwrap
+	 */
+	public function after($response){
+		$response = parent::after($response);
+		if($this->__404 === true)
+		{
+			$response->set_status(404);
+		}
+		return $response;
+	}
 
 	/**
 	 * The basic welcome message
@@ -30,7 +33,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
+		$this->template->content = \View::forge('welcome/index');
 	}
 
 	/**
@@ -42,7 +45,14 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_hello()
 	{
-		return Response::forge(Presenter::forge('welcome/hello'));
+		$this->_title = 'Hello, ' .$this->request->route->named_params['name'];
+		$this->_crumbs = array(
+			array(
+				'url' => 'hello/' . $this->request->route->named_params['name'],
+				'label' => $this->request->route->named_params['name']
+			)
+		);
+		$this->template->content = \Presenter::forge('welcome/hello');
 	}
 
 	/**
@@ -53,6 +63,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_404()
 	{
-		return Response::forge(Presenter::forge('welcome/404'), 404);
+		$this->__404 = true;
+		$this->template->content = \Presenter::forge('welcome/404');
 	}
 }
