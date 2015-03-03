@@ -9,6 +9,7 @@ class Controller_Template extends \Fuel\Core\Controller_Template {
 	protected $_js = array();
 	protected $_title = null;
 	protected $_crumbs = array();
+	protected $_jquery_version = '2.1.3';
 
 	/**
 	 * @overwrap

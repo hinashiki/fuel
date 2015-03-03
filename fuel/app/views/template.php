@@ -27,6 +27,7 @@
 			</p>
 		</div>
 	</footer>
-	<?= \Asset::js('bootstrap.js'); ?>
+	<script type="text/javascript" src="//code.jquery.com/jquery-<?= $jquery_version ?>.min.js"></script>
+	<?= \Asset::js('bootstrap.js', 'core.js'); ?>
 </body>
 </html>
