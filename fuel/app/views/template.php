@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	<title><?= $title ?>:<?= \Config::get('app_name') ?></title>
 	<?= \Seo::instance()->get_meta_html() ?>
-	<?= \Asset::css('bootstrap.css'); ?>
+	<?= \Asset::css(\Arr::merge(array('bootstrap.css', 'common.css'), $css)) ?>
 </head>
 <body>
 	<header class="header navbar navbar-inverse">
@@ -28,6 +28,6 @@
 		</div>
 	</footer>
 	<script type="text/javascript" src="//code.jquery.com/jquery-<?= $jquery_version ?>.min.js"></script>
-	<?= \Asset::js('bootstrap.js', 'core.js'); ?>
+	<?= \Asset::js(\Arr::merge(array('bootstrap.js', 'core.js'), $js)) ?>
 </body>
 </html>
