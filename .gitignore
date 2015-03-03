@@ -21,7 +21,7 @@ desktop.ini
 # any of the fuel packages installed by default
 /docs/
 /fuel/core/
-/fuel/packages/
+/fuel/packages/*
 
 # dynamically generated files
 /fuel/app/logs/*/*/*
