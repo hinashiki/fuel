@@ -272,6 +272,9 @@ return array(
 		 * );
 		 */
 		'packages'  => array(
+			// 'auth',
+			// 'orm',
+			// 'email',
 			'fuelphp-maintenance',
 			'fuelphp-seo',
 		),
