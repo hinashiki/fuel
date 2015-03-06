@@ -109,7 +109,7 @@ core.getUrlVars = function(url){
 	if(typeof url === 'undefined') {
 		url = window.location;
 	} else {
-		tmp = document.createElement('a');
+		var tmp = document.createElement('a');
 		tmp.href = url;
 		url = tmp;
 	}
