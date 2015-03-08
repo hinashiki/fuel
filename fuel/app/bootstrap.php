@@ -11,6 +11,7 @@ Autoloader::add_classes(array(
 	'Error'               => APPPATH.'classes/error.php',
 	'Input'               => APPPATH.'classes/input.php',
 	'Log'                 => APPPATH.'classes/log.php',
+	'Model_TaskQueue'     => APPPATH.'classes/model/taskqueue.php',
 	'Response'            => APPPATH.'classes/response.php',
 	'TestCase'            => APPPATH.'classes/testcase.php',
 	// Add exception what you want
