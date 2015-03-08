@@ -277,6 +277,7 @@ return array(
 			// 'email',
 			'fuelphp-maintenance',
 			'fuelphp-seo',
+			'fuelphp-queue',
 		),
 
 		/**

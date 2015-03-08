@@ -204,3 +204,22 @@ core.dfp = {
 	}
 }
 
+/**
+ * send task queues
+ */
+core.sendQueue = function(method, args, dup_type)
+{
+	$.ajax({
+		async: true,
+		url: '/queue',
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			method: method,
+			args: args,
+			type: dup_type
+		}
+	}).fail(function(request){
+		console.error(request);
+	});
+}
