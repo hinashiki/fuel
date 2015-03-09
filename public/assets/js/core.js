@@ -160,8 +160,7 @@ core.autoBottomLoad = function(method) {
  *
  * @param jqueryObject $object
  */
-core.verticalAlignMiddle = function($object)
-{
+core.verticalAlignMiddle = function($object){
 	var $tables = $("<span><span><span></span></span></span>");
 	$tables.css({
 		display: "table",
@@ -175,6 +174,9 @@ core.verticalAlignMiddle = function($object)
 		verticalAlign: "middle"
 	});
 	$object.wrapInner($tables[0]);
+	$(window).resize(function(){
+		$object.children().height($object.height()+'px');
+	});
 }
 
 /**
