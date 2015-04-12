@@ -7,22 +7,19 @@
  * @return json
  */
 namespace UserFollow;
-class Controller_UserFollow extends \Controller_Rest
+class Controller_UserFollow extends \Controller_Api
 {
 
 	protected $format = 'json';
 
 	public function post_index()
 	{
-		if(\Auth::get('id') === false or strlen(\Input::post('user_id')) === 0)
-		{
-			$this->response->status = 403;
-			return $this->response(array(
-				'result' => false,
-			));
-		}
 		try
 		{
+			if(\Auth::get('id') === false or strlen(\Input::post('user_id')) === 0)
+			{
+				throw new \Exception("param error", 403);
+			}
 			Model_UserFollow::follow(\Auth::get('id'), \Input::post('user_id'));
 			return $this->response(array(
 				'result' => true,
@@ -32,30 +29,18 @@ class Controller_UserFollow extends \Controller_Rest
 		}
 		catch(\Exception $e)
 		{
-			$code = 500;
-			if($e->getCode() >= 400 and $e->getCode() < 600)
-			{
-				$code = $e->getCode();
-			}
-			$this->response->status = $code;
-			return $this->response(array(
-				'result' => false,
-				'reason' => $e->getMessage(),
-			));
+			$this->_common_exception_return($e);
 		}
 	}
 
 	public function post_remove()
 	{
-		if(\Auth::get('id') === false or strlen(\Input::post('user_id')) === 0)
-		{
-			$this->response->status = 403;
-			return $this->response(array(
-				'result' => false,
-			));
-		}
 		try
 		{
+			if(\Auth::get('id') === false or strlen(\Input::post('user_id')) === 0)
+			{
+				throw new \Exception("param error", 403);
+			}
 			Model_UserFollow::unfollow(\Auth::get('id'), \Input::post('user_id'));
 			return $this->response(array(
 				'result' => true,
@@ -65,16 +50,7 @@ class Controller_UserFollow extends \Controller_Rest
 		}
 		catch(\Exception $e)
 		{
-			$code = 500;
-			if($e->getCode() >= 400 and $e->getCode() < 600)
-			{
-				$code = $e->getCode();
-			}
-			$this->response->status = $code;
-			return $this->response(array(
-				'result' => false,
-				'reason' => $e->getMessage(),
-			));
+			$this->_common_exception_return($e);
 		}
 	}
 }

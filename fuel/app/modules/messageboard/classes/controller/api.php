@@ -7,7 +7,7 @@
  * @return json
  */
 namespace MessageBoard;
-class Controller_Api extends \Controller_Rest
+class Controller_Api extends \Controller_Api
 {
 
 	protected $format = 'json';
@@ -26,7 +26,7 @@ class Controller_Api extends \Controller_Rest
 		}
 		catch(\Exception $e)
 		{
-			return $this->__common_exception_return($e);
+			return $this->_common_exception_return($e);
 		}
 		return $this->response(array(
 			'result' => true,
@@ -54,7 +54,7 @@ class Controller_Api extends \Controller_Rest
 		}
 		catch(\Exception $e)
 		{
-			return $this->__common_exception_return($e);
+			return $this->_common_exception_return($e);
 		}
 		return $this->response(array(
 			'result' => true,
@@ -84,7 +84,7 @@ class Controller_Api extends \Controller_Rest
 		}
 		catch(\Exception $e)
 		{
-			return $this->__common_exception_return($e);
+			return $this->_common_exception_return($e);
 		}
 		return $this->response(array(
 			'result' => true,
@@ -108,24 +108,11 @@ class Controller_Api extends \Controller_Rest
 		}
 		catch(\Exception $e)
 		{
-			return $this->__common_exception_return($e);
+			return $this->_common_exception_return($e);
 		}
 		return $this->response(array(
 			'result' => true,
 		));
 	}
 
-	private function __common_exception_return(\Exception $e)
-	{
-		$code = 500;
-		if($e->getCode() >= 400 and $e->getCode() < 600)
-		{
-			$code = $e->getCode();
-		}
-		$this->response->status = $code;
-		return $this->response(array(
-			'result' => false,
-			'reason' => $e->getMessage(),
-		));
-	}
 }
