@@ -14,6 +14,7 @@ Autoloader::add_classes(array(
 	'Model_TaskQueue'     => APPPATH.'classes/model/taskqueue.php',
 	'Response'            => APPPATH.'classes/response.php',
 	'TestCase'            => APPPATH.'classes/testcase.php',
+	'Validation'          => APPPATH.'classes/validation.php',
 	// Add exception what you want
 	'RedirectTestException' => APPPATH.'classes/error.php',
 ));
