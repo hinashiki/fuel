@@ -15,6 +15,7 @@
 		</div>
 	</header>
 	<?= $bread_crumb ?>
+	<?= \View::forge('elements/flash') ?>
 	<div class="container">
 		<?= $content ?>
 	</div>
