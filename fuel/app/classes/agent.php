@@ -13,9 +13,9 @@ class Agent
 	{
 		$ua = $_SERVER['HTTP_USER_AGENT'];
 		if(
-			(strpos($ua, 'iPhone')  !== false) ||
-			(strpos($ua, 'iPod')    !== false) ||
-			(strpos($ua, 'Android') !== false) ||
+			(strpos($ua, 'iPhone')  !== false) or
+			(strpos($ua, 'iPod')    !== false) or
+			(strpos($ua, 'Android') !== false) or
 			(strpos($ua, 'Googlebot-Mobile') !== false)
 		)
 		{
