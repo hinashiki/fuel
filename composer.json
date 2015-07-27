@@ -141,7 +141,7 @@
         "hipchat/hipchat-php": "1.3.0",
         "hinashiki/fuelphp-maintenance": "0.2.0",
         "hinashiki/fuelphp-seo": "0.1.0",
-        "hinashiki/fuelphp-queue": "0.1.0"
+        "hinashiki/fuelphp-queue": "0.2.0"
     },
     "suggest": {
         "dwoo/dwoo" : "Allow Dwoo templating with the Parser package",
