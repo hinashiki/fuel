@@ -39,6 +39,7 @@ class Model_MessageBoard extends \Model_Crud
 		if(empty($rules))
 		{
 			\Config::load('messageboard::messageboard', 'messageboard');
+			\Config::load('messageboard', 'messageboard', false, true);
 			$rules = \Config::get('messageboard.valid_rule', array());
 		}
 		static::$_rules = $rules;
