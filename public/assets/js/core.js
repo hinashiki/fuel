@@ -113,15 +113,27 @@ core.getUrlVars = function(url){
 		tmp.href = url;
 		url = tmp;
 	}
-	var vars = [], hash;
+	var vars = [], hash, arrName, keyName;
 	if(url.search.length < 2) {
 		return vars;
 	}
 	var hashes = url.search.slice(url.search.indexOf('?') + 1).split('&');
 	for(var i = 0; i < hashes.length; i++) {
 		hash = hashes[i].split('=');
+		arrName = hash[0].replace(/\[.*\]$/gi, '');
+		keyName = hash[0].replace(/^[^\[]+/gi, '').replace(/[\[\]]/gi, '');
 		vars.push(hash[0]);
-		vars[hash[0]] = hash[1];
+		if(hash[0].indexOf('[') > 0 && hash[0].indexOf(']') > 0){
+			if (typeof vars[arrName] === 'undefined') {
+				vars[arrName] = [];
+			}
+			vars[arrName].push(hash[1]);
+			if(keyName.length > 0) {
+				vars[arrName][keyName] = hash[1];
+			}
+		} else {
+			vars[hash[0]] = hash[1];
+		}
 	}
 	return vars;
 }
