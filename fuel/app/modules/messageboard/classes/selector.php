@@ -14,7 +14,7 @@ class Selector
 	public static function get_comments($type, $author_id, $page = 1)
 	{
 		\Config::load('messageboard::messageboard', 'messageboard');
-		\Config::load('messageboard', 'messageboard', false, true);
+		\Config::load(APPPATH.'config/messageboard', 'messageboard', false, true);
 		$limit = \Config::get('messageboard.limit', 100);
 		$select = array(
 			'users.*',
@@ -55,7 +55,7 @@ class Selector
 	public static function get_comment_count($type, $author_id)
 	{
 		\Config::load('messageboard::messageboard', 'messageboard');
-		\Config::load('messageboard', 'messageboard', false, true);
+		\Config::load(APPPATH.'config/messageboard', 'messageboard', false, true);
 		$query = \DB::select(\DB::expr('COUNT(*) as cnt'));
 		$query->from('message_boards')
 			->join('users', 'INNER')
